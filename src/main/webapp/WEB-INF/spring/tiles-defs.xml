@@ -9,7 +9,7 @@
    <definition name="standalone.resourcenotfound" template="/WEB-INF/views/standalone/page_404.jsp" />
    <definition name="standalone.logintimeout" template="/WEB-INF/views/standalone/page_440.jsp" />
    <definition name="standalone.uncaughtexception" template="/WEB-INF/views/standalone/page_500.jsp" />
-   
+
 
    <definition name="layout" template="/WEB-INF/views/layout/layout.jsp">
       <put-attribute name="navigation_left" value="/WEB-INF/views/layout/navigation_left.jsp" />
@@ -93,6 +93,17 @@
          <!-- Choreography Synthesis -->
    <definition name="choreography.synthesis" extends="layout">
       <put-attribute name="content" value="/WEB-INF/views/choreography/synthesis/choreographysynthesis.jsp" />
+   </definition>
+   
+   <!-- <definition name="choreography.synthesis.create" extends="layout">
+        <put-attribute name="view_type" value="create" />
+      <put-attribute name="action" value="/choreography/synthesis/create" />
+      <put-attribute name="action_cancel" value="/choreography/synthesis" /> 
+      <put-attribute name="content" value="/WEB-INF/views/choreography/synthesis/create_cho.jsp" />
+   </definition> -->
+   
+   <definition name="choreography.synthesis.create" extends="layout">
+      <put-attribute name="content" value="/WEB-INF/views/choreography/synthesis/create_cho.jsp" />
    </definition>
    
 </tiles-definitions>

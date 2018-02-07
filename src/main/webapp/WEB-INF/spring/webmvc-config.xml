@@ -61,6 +61,8 @@
    <mvc:view-controller path="/accessdenied" view-name="standalone.accessdenied" />
    <mvc:view-controller path="/resourcenotfound" view-name="standalone.resourcenotfound" />
    
+   
+   
 
    <!-- ================= INTERNATIONALIZATION ================= -->
    <!-- Register "global" interceptor beans to apply to all registered HandlerMappings -->

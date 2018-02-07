@@ -85,6 +85,11 @@ public class ChoreographyController {
    public String showChoreographySynthesis() {
       return "choreography.synthesis";
    }
+   
+   @RequestMapping("/synthesis/create")
+   public String showCreateChoreographySynthesis() {
+      return "choreography.synthesis.create";
+   }
 
    // Choreography specification
    @RequestMapping("/choreographyspecification/loadsample")
