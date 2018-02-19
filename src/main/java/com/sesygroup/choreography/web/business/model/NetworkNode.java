@@ -15,19 +15,44 @@
  */
 package com.sesygroup.choreography.web.business.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Alexander Perucci (http://www.alexanderperucci.com/)
  *
  */
+@Entity
+@Table(name = "node")
 public class NetworkNode implements java.io.Serializable {
    private static final long serialVersionUID = 7904723562098631084L;
+   
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "node_id")
    private String id;
+   
+   @Column(name = "title", nullable = false, length = 64)
    private String title;
+   
+   @Column(name = "label", nullable = false, length = 64)
    private String label;
+   
+   @Column(name = "name", nullable = false, length = 64)
    private String name;
+   
+   @Column(name = "group", nullable = false, length = 64)
    private String group;
+   
+   @Column(name = "type", nullable = false, length = 64)
    private String type;
+   
+   @Column(name = "participant", nullable = false, length = 64)
    private String participant;
 
    public NetworkNode() {

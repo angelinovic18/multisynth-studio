@@ -49,6 +49,58 @@ CREATE TABLE user_role (
   CONSTRAINT user_role_role FOREIGN KEY (role_id) REFERENCES role (role_id) ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `network`
+--
+
+CREATE TABLE network (
+  network_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  type VARCHAR(50) NOT NULL,
+  user_id BIGINT UNSIGNED NOT NULL,
+  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (network_id),
+  FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `edge`
+--
+
+CREATE TABLE edge (
+  edge_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `from` VARCHAR(64) NOT NULL,
+  `to` VARCHAR(64) NOT NULL,
+  title VARCHAR(64) NOT NULL,
+  label VARCHAR(64) NOT NULL,
+  dashes BOOLEAN NOT NULL DEFAULT TRUE,
+  type VARCHAR(64) NOT NULL,
+  message VARCHAR(64) NOT NULL,
+  participantSendMessage VARCHAR(64) NOT NULL,
+  participantReceiveMessage VARCHAR(64) NOT NULL,
+  network_id BIGINT UNSIGNED NOT NULL,
+  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (edge_id),
+  FOREIGN KEY (network_id) REFERENCES network (network_id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `node`
+--
+
+CREATE TABLE node (
+  node_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  title VARCHAR(64) NOT NULL,
+  label VARCHAR(64) NOT NULL,
+  name VARCHAR(64) NOT NULL,
+  `group` VARCHAR(64) NOT NULL,
+  type VARCHAR(64) NOT NULL,
+  participant VARCHAR(64) NOT NULL,
+  network_id BIGINT UNSIGNED NOT NULL,
+  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (node_id),
+  FOREIGN KEY (network_id) REFERENCES network (network_id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Administration User for the schema `multisynth-studio`

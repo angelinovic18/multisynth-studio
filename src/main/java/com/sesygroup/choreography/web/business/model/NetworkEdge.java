@@ -15,22 +15,53 @@
  */
 package com.sesygroup.choreography.web.business.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Alexander Perucci (http://www.alexanderperucci.com/)
  *
  */
+@Entity
+@Table(name = "edge")
 public class NetworkEdge implements java.io.Serializable {
    private static final long serialVersionUID = -8376145544555337133L;
+   
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "edge_id")
    private String id;
+   
+   @Column(name = "from", nullable = false, length = 64)
    private String from;
+   
+   @Column(name = "to", nullable = false, length = 64)
    private String to;
+   
+   @Column(name = "title", nullable = false, length = 64)
    private String title;
+   
+   @Column(name = "label", nullable = false, length = 64)
    private String label;
+   
+   @Column(name = "dashes", nullable = false)
    private boolean dashes;
+   
+   @Column(name = "type", nullable = false, length = 64)
    private String type;
+   
+   @Column(name = "message", nullable = false, length = 64)
    private String message;
+   
+   @Column(name = "participantSendMessage", nullable = false, length = 64)
    private String participantSendMessage;
+   
+   @Column(name = "participantReceiveMessage", nullable = false, length = 64)
    private String participantReceiveMessage;
 
    public NetworkEdge() {

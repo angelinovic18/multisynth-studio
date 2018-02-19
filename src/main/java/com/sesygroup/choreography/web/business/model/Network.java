@@ -18,16 +18,61 @@ package com.sesygroup.choreography.web.business.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Alexander Perucci (http://www.alexanderperucci.com/)
  *
  */
+@Entity
+@Table(name = "network")
 public class Network implements java.io.Serializable {
    private static final long serialVersionUID = 6712650419073279052L;
+   
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "network_id")
+   private Long id;
+   
+   @Column(name = "name" , nullable = false, length = 45)
+   private String name;
+   
+   @Column(name = "type", nullable = false, length = 45)
+   private String type;
+   
    private List<NetworkNode> nodes;
    private List<NetworkEdge> edges;
+   
+   public Long getId() {
+	   return id;
+   }
+   
+   public void setId(Long id) {
+	   this.id = id;
+   }
+   
+   public String getName() {
+	   return name;
+   }
 
+   public void setName(String name) {
+	   this.name = name;
+   }
+   
+   public String getType() {
+	   return type;
+   }
+   
+   public void setType(String type){
+	   this.type = type;
+   }
+   
    public Network() {
       super();
       nodes = new ArrayList<NetworkNode>();

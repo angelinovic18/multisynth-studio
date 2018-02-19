@@ -103,7 +103,7 @@
    </definition> -->
    
    <definition name="choreography.synthesis.create" extends="layout">
-      <put-attribute name="content" value="/WEB-INF/views/choreography/synthesis/create_cho.jsp" />
+      <put-attribute name="content" value="/WEB-INF/views/choreography/synthesis/create_choreographysynthesis.jsp" />
    </definition>
    
 </tiles-definitions>
