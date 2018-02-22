@@ -20,6 +20,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -54,6 +56,10 @@ public class NetworkNode implements java.io.Serializable {
    
    @Column(name = "participant", nullable = false, length = 64)
    private String participant;
+   
+   @ManyToOne
+   @JoinColumn(name = "network_id")
+   private Network network;
 
    public NetworkNode() {
       super();
@@ -141,6 +147,14 @@ public class NetworkNode implements java.io.Serializable {
 
    public void setParticipant(String participant) {
       this.participant = participant;
+   }
+   
+   public Network getNetwork() {
+	   return network;
+   }
+   
+   public void setNetwork (Network network) {
+	   this.network = network;
    }
 
    @Override

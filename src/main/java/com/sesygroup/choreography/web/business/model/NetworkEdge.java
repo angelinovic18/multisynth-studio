@@ -20,6 +20,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -63,6 +67,10 @@ public class NetworkEdge implements java.io.Serializable {
    
    @Column(name = "participantReceiveMessage", nullable = false, length = 64)
    private String participantReceiveMessage;
+   
+   @ManyToOne
+   @JoinColumn(name = "network_id")
+   private Network network;
 
    public NetworkEdge() {
       super();
@@ -181,6 +189,14 @@ public class NetworkEdge implements java.io.Serializable {
 
    public void setParticipantReceiveMessage(String participantReceiveMessage) {
       this.participantReceiveMessage = participantReceiveMessage;
+   }
+   
+   public Network getNetwork() {
+	   return network;
+   }
+   
+   public void setNetwork (Network network) {
+	   this.network = network;
    }
 
    @Override

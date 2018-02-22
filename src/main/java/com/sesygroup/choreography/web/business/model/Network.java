@@ -23,6 +23,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -46,7 +49,12 @@ public class Network implements java.io.Serializable {
    @Column(name = "type", nullable = false, length = 45)
    private String type;
    
+   @OneToMany(mappedBy = "network")
+   @JoinColumn(name = "network_id")
    private List<NetworkNode> nodes;
+   
+   @OneToMany(mappedBy = "network")
+   @JoinColumn(name = "network_id")
    private List<NetworkEdge> edges;
    
    public Long getId() {
