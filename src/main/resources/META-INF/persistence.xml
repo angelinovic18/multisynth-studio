@@ -8,6 +8,9 @@
 
       <class>com.sesygroup.choreography.web.business.model.User</class>
       <class>com.sesygroup.choreography.web.business.model.Role</class>
+      <class>com.sesygroup.choreography.web.business.model.Network</class>
+      <class>com.sesygroup.choreography.web.business.model.NetworkEdge</class>
+      <class>com.sesygroup.choreography.web.business.model.NetworkNode</class>
 
       <!-- FIXME: Register here your business model -->
       
